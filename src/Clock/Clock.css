@@ -1,0 +1,11 @@
+.clock {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: #00f001;
+  font-family: "Orbitron", sans-serif;
+  font-size: 6rem;
+}
