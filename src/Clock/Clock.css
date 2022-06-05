@@ -16,16 +16,21 @@
 
 .input {
   color: #00f001;
+  font-family: "Orbitron", sans-serif;
   width: 150px;
   height: 130px;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 6rem;
+  background-color: #000;
+  border: #00f001 solid 1px;
 }
 
 .button {
   color: #00f001;
-  padding: 1rem;
+  padding: 1rem ;
   margin: 1rem;
   font-size: 1rem;
+  background-color: rgba(240, 248, 255, 0.055);
+  border: #00f001 solid 1px;
 }

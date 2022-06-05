@@ -98,8 +98,8 @@ export class ClockClassComponent extends React.Component {
               <input className="input" type="text" id="inputSecond" onChange={this.inputSecond}/>
             </div>
             <div className="divButton">
-              <button className="button" onClick={this.changeInput} >CLOCK</button>
               <button className="button" onClick={this.start} >START</button>
+              <button className="button" onClick={this.restart} >RESTART</button>
           </div>
           </div>
         </div>
