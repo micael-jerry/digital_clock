@@ -2,10 +2,30 @@
   width: 100vw;
   height: 100vh;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #000;
-  color: #00f001;
+  color:  #00f001;
+}
+
+.value {
   font-family: "Orbitron", sans-serif;
   font-size: 6rem;
+}
+
+.input {
+  color: #00f001;
+  width: 150px;
+  height: 130px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: 6rem;
+}
+
+.button {
+  color: #00f001;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 1rem;
 }

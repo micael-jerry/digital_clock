@@ -1,6 +1,6 @@
 import "./App.css";
-import { Clock, ClockClassComponent } from "./Clock/Clock";
-
+import { Clock } from "./Clock/Clock";
+import { ClockClassComponent } from "./Clock/ClockClassComponent";
 function App() {
   return (
     <>

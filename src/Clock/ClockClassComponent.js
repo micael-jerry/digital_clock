@@ -10,18 +10,23 @@ export class ClockClassComponent extends React.Component {
         enterValue : false,
         hours : 0,
         minute : 0,
-        second : 0
+        second : 0,
+        timestamp : new Date().getTime()
     };
-    this.changeInput = this.changeInput.bind(this)
-    this.inputHours = this.inputHours.bind(this)
-    this.inputMinute = this.inputMinute.bind(this)
-    this.inputSecond = this.inputSecond.bind(this)
-    this.start = this.start.bind(this)
+    this.changeInput = this.changeInput.bind(this);
+    this.inputHours = this.inputHours.bind(this);
+    this.inputMinute = this.inputMinute.bind(this);
+    this.inputSecond = this.inputSecond.bind(this);
+    this.start = this.start.bind(this);
+    this.restart = this.restart.bind(this);
   }
 
   componentDidMount() {
     this.setState({
-      timer: setInterval(() => this.setState({ date: new Date() }), 1000),
+      timer: setInterval(() => this.setState(state => ({
+        date : new Date(state.timestamp),
+        timestamp : state.timestamp+1000
+      })), 1000),
     });
   }
 
@@ -57,35 +62,47 @@ export class ClockClassComponent extends React.Component {
   
   start(){
     this.setState(state => ({
-      date : new Date(state.date.getYear(),state.date.getMonth(),state.date.getDay(),state.hours,state.minute,state.second)
+      timestamp : new Date(new Date().getYear(),new Date().getMonth(),new Date().getDay(),state.hours,state.minute,state.second).getTime()
     }));
     this.changeInput()
+  }
+
+  restart(){
+    this.setState(state => ({
+      timestamp : new Date().getTime()
+    }));
   }
 
   render() {
     if(this.state.enterValue===false){
       return (
-        <>
-          <div className="clock">
+        <div className="clock">
+          <div className="value">
             <span>{this.padStartDigit(this.state.date.getHours())}: </span>
             <span>{this.padStartDigit(this.state.date.getMinutes())}: </span>
             <span>{this.padStartDigit(this.state.date.getSeconds())}</span>
-            <button onClick={this.changeInput} >INPUT</button>
           </div>
-        </>
+          <div className="divButton">
+            <button className="button" onClick={this.changeInput} >INPUT</button>
+            <button className="button" onClick={this.restart}>RESTART</button>
+          </div>
+        </div>
       );
     } else{
       return (
-        <>
-          <div className="">
-            <h1>input</h1>
-            <input type="text" id="inputHours" value={this.state.hours} onChange={this.inputHours}/>
-            <input type="text" id="inputMinute" value={this.state.minute} onChange={this.inputMinute}/>
-            <input type="text" id="inputSecond" value={this.state.second} onChange={this.inputSecond}/>
-            <button onClick={this.changeInput} >CLOCK</button>
-            <button onClick={this.start} >START</button>
+        <div >
+          <div className="clock">
+            <div className="value">
+              <input className="input" type="text" id="inputHours"  onChange={this.inputHours}/>
+              <input className="input" type="text" id="inputMinute" onChange={this.inputMinute}/>
+              <input className="input" type="text" id="inputSecond" onChange={this.inputSecond}/>
+            </div>
+            <div className="divButton">
+              <button className="button" onClick={this.changeInput} >CLOCK</button>
+              <button className="button" onClick={this.start} >START</button>
           </div>
-        </>
+          </div>
+        </div>
       )
     }
   }
