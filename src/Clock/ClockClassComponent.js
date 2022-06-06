@@ -25,7 +25,7 @@ export class ClockClassComponent extends React.Component {
     this.setState({
       timer: setInterval(() => this.setState(state => ({
         date : new Date(state.timestamp),
-        timestamp : state.timestamp+1000
+        timestamp : state.timestamp+500
       })), 1000),
     });
   }
@@ -46,17 +46,17 @@ export class ClockClassComponent extends React.Component {
 
   inputHours(event){
     this.setState({
-      hours : event.target.value
+      hours : parseInt(event.target.value)
     });
   }
   inputMinute(event){
     this.setState({
-      minute : event.target.value
+      minute : parseInt(event.target.value)
     });
   }
   inputSecond(event){
     this.setState({
-      second : event.target.value
+      second : parseInt(event.target.value)
     });
   }
   
@@ -68,9 +68,9 @@ export class ClockClassComponent extends React.Component {
   }
 
   restart(){
-    this.setState(state => ({
+    this.setState({
       timestamp : new Date().getTime()
-    }));
+    });
   }
 
   render() {
@@ -99,7 +99,7 @@ export class ClockClassComponent extends React.Component {
             </div>
             <div className="divButton">
               <button className="button" onClick={this.start} >START</button>
-              <button className="button" onClick={this.restart} >RESTART</button>
+              <button className="button" onClick={this.changeInput} >CLOCK</button>
           </div>
           </div>
         </div>

@@ -18,12 +18,13 @@
   color: #00f001;
   font-family: "Orbitron", sans-serif;
   width: 150px;
-  height: 130px;
+  height: 110px;
   margin-left: 10px;
   margin-right: 10px;
   font-size: 6rem;
   background-color: #000;
   border: #00f001 solid 1px;
+  text-align: center;
 }
 
 .button {
@@ -33,4 +34,7 @@
   font-size: 1rem;
   background-color: rgba(240, 248, 255, 0.055);
   border: #00f001 solid 1px;
+}
+.button:hover {
+  background-color:rgba(240, 248, 255, 0.233)
 }
