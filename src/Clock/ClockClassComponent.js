@@ -11,6 +11,7 @@ export class ClockClassComponent extends React.Component {
         hours : 0,
         minute : 0,
         second : 0,
+        incOrDec : 500,
         timestamp : new Date().getTime()
     };
     this.changeInput = this.changeInput.bind(this);
@@ -25,7 +26,7 @@ export class ClockClassComponent extends React.Component {
     this.setState({
       timer: setInterval(() => this.setState(state => ({
         date : new Date(state.timestamp),
-        timestamp : state.timestamp+500
+        timestamp : state.timestamp+state.incOrDec
       })), 1000),
     });
   }
@@ -62,6 +63,7 @@ export class ClockClassComponent extends React.Component {
   
   start(){
     this.setState(state => ({
+      incOrDec : -500,
       timestamp : new Date(new Date().getYear(),new Date().getMonth(),new Date().getDay(),state.hours,state.minute,state.second).getTime()
     }));
     this.changeInput()
@@ -69,6 +71,7 @@ export class ClockClassComponent extends React.Component {
 
   restart(){
     this.setState({
+      incOrDec : 500,
       timestamp : new Date().getTime()
     });
   }
