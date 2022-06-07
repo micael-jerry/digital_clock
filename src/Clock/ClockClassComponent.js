@@ -71,6 +71,9 @@ export class ClockClassComponent extends React.Component {
 
   restart(){
     this.setState({
+      hours : 0,
+      minute : 0,
+      second : 0,
       incOrDec : 500,
       timestamp : new Date().getTime()
     });
@@ -86,8 +89,8 @@ export class ClockClassComponent extends React.Component {
             <span>{this.padStartDigit(this.state.date.getSeconds())}</span>
           </div>
           <div className="divButton">
-            <button className="button" onClick={this.changeInput} >INPUT</button>
-            <button className="button" onClick={this.restart}>RESTART</button>
+            <button className="button" onClick={this.changeInput} >TIMER</button>
+            <button className="button" onClick={this.restart}>CLOCK</button>
           </div>
         </div>
       );
@@ -102,7 +105,7 @@ export class ClockClassComponent extends React.Component {
             </div>
             <div className="divButton">
               <button className="button" onClick={this.start} >START</button>
-              <button className="button" onClick={this.changeInput} >CLOCK</button>
+              <button className="button" onClick={this.changeInput} >CANCEL</button>
           </div>
           </div>
         </div>
