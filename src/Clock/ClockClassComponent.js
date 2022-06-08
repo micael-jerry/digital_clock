@@ -8,9 +8,9 @@ export class ClockClassComponent extends React.Component {
         date: new Date(),
         timer: null ,
         enterValue : false,
-        hours : 0,
-        minute : 0,
-        second : 0,
+        hours : 1,
+        minute : 1,
+        second : 1,
         incOrDec : 500,
         timestamp : new Date().getTime()
     };
@@ -81,6 +81,11 @@ export class ClockClassComponent extends React.Component {
 
   render() {
     if(this.state.enterValue===false){
+      if(this.state.date.getHours()===0 && this.state.date.getMinutes()===0 && this.state.date.getSeconds()===0){
+        return(
+          alert("👾👾👾👾👾👾👾👾👾TIME COULE👾👾👾👾👾👾👾👾👾")
+        )
+      }
       return (
         <div className="clock">
           <div className="value">
@@ -94,7 +99,8 @@ export class ClockClassComponent extends React.Component {
           </div>
         </div>
       );
-    } else{
+    } 
+    else{
       return (
         <div >
           <div className="clock">
